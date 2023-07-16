@@ -21,7 +21,7 @@ function getFirstUniqueChar(text) {
   
   // заповнити мапу частотами літер тексту (слова або масиву літер)
   for (let char of text) {
-    if (!chartMap.hasOwnProperty(char)) {
+    if (!chartMap.hasOwnProperty(char) && char) {
       chartMap[char] = 0;
     }
     chartMap[char] += 1;
