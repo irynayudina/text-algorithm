@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Алгоритм пошуку</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+    </style>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Алгоритм пошуку</h1>
+        <div class="form-group container-fluid text-muted">
+            - програма приймає на вхід довільний текст і знаходить в
+            кожному слові цього тексту
+            найперший символ, який більше НЕ повторюється в аналізуємому слові <br>
+            - далі із отриманого набору символів програма повинна вибрати перший унікальний (тобто той, який більше не
+            зустручається в наборі) і повернути його. <br>
+            <a href="http://github.com" target="_blank" rel="noopener noreferrer">Вихідний код програми</a>
+        </div>
+        <div class="form-group container-fluid">
+            <textarea class="form-control" rows="10" id="inputText" placeholder="Введіть вхідний текст">
+The Tao gave birth to machine language.  Machine language gave birth
+to the assembler.
+The assembler gave birth to the compiler.  Now there are ten thousand
+languages.
+Each language has its purpose, however humble.  Each language
+expresses the Yin and Yang of software.  Each language has its place within
+the Tao.
+But do not program in COBOL if you can avoid it.
+        -- Geoffrey James, "The Tao of Programming"
+            </textarea>
+        </div>
+        <button class="btn btn-primary" id="sendButton">Знайти перший унікальний символ в тексті</button>
+        <p class="mt-2"><strong class="text-muted">Результат: </strong><strong id="result"></strong></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#sendButton').click(function () {
+                var inputText = $('#inputText').val();
+                $('#result').text(findFirstUniqueCharacter(inputText));
+            });
+        });
+    </script>
+</body>
+
+</html>
